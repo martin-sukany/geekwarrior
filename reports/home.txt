@@ -1,0 +1,28 @@
+
+ID Project       Tags Description
+-- ------------- ---- ----------------------------------------------
+15                [3] Koupit powerbanku
+ 2                [2] Naucit se s rangerem
+ 1                [2] Vytvorit system v TaskWarrior
+10                [2] Zprovoznit tiskarnu doma
+17                [3] zaplatit vikend v tichu
+
+19 byt            [4] Sehnat sadru na diru ve zdi
+
+14 dovolena       [3] Vybrat misto kam pojedu
+
+21 finance        [2] Splatit kreditku
+
+12 reflexe        [3] Sepsat svou predstavu a poslat Honzovi
+
+ 4 tabor          [3] Poslat Hance papir o uctu
+
+16 vzdelavani     [3] Sepsat, v cem se chci vzdelavat
+
+ 3 zao            [2] Scenar na kazdy den
+ 5 zao            [2] Udelat scenar na kazdy den
+18 zao            [4] Zjistit, jestli v Jedove muzou byt dva psi
+
+13 zpivani_venku  [2] Napsat neco jako pozvanku
+
+15 tasks

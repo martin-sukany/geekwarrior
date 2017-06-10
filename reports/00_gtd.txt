@@ -1,0 +1,83 @@
+
+Context                  ID Task                        Project       Due
+------------------------ -- --------------------------- ------------- ----------
+@home next                1 Vytvorit system v                         2017-06-09
+                            TaskWarrior
+@home next                2 Naucit se s rangerem                      2017-06-10
+next                      7 Rozhodnout se, jestli                     2017-06-25
+                            opravdu pojedu na surfy
+computer home next       17 zaplatit vikend v tichu                   2017-08-15
+in                       36 7 kratkych prednasek z
+                            fyziky
+in                       38 Budoucnost organizaci
+in                       44 Dny ohnu
+in                       64 Github taskd
+in                       43 Hluk padajicich veci
+in                       46 Kingdom Comme
+in                       62 Mp3text
+in                       30 Muzeum nevkusu
+in                       63 Noip 
+in                       60 PAM
+in                       54 Pasta na zuby
+in                       45 Persona
+in                       47 Prekvapko Alca
+in                       29 Pro slavu
+in                       41 Prominent Patient
+in                       56 Práci prasek
+in                       49 Revize cilu
+in                       39 Simon Singh - Simpsonovi
+in                       37 Soudruh nula
+in                       50 TaskWarrior v Emacsu
+in                       40 Tri muzi na toulkach
+in                       65 Yr
+in                       53 ZTJ FB + aktualne z givtu
+in                       42 Zahrada slezove barvy
+in                       25 analyza planu
+in                       61 bomba prispevek
+in                       66 dlouhy testovaci ukol
+in                       67 gw someday
+in                       69 gw tickle during processing
+in                       68 gw waiting
+in                       35 historka ajtaktak
+in                       48 karierni posun
+in                       59 kontejnery docker
+in                       32 krychle
+in                       27 moralni program
+in                       28 na brigadu do vesnice
+in                       31 nebe peklo raj
+in                       23 nocni hra
+in                       55 nove knihy
+in                       57 openshift
+in                       58 openstack
+in                       26 skodici
+in                       34 slzy bohyne slunce
+in                       20 svetlo v koupelne
+in                       33 svolavacka
+in                       52 tabor harmonogram
+in                       24 vycvik jedi
+in                       51 zaostreno harmonogram
+in                       22 ztj pokladna
+computer home next       15 Koupit powerbanku
+errands next             11 Koupit alobal
+home next                10 Zprovoznit tiskarnu doma
+next rnr                  6 Read and review:
+                              2017-06-09
+                            http://gymnasion.org/
+computer errands next    19 Sehnat sadru na diru ve zdi byt
+slavicin
+computer home next       14 Vybrat misto kam pojedu     dovolena      2017-06-20
+home next                21 Splatit kreditku            finance       2017-12-31
+computer home next       12 Sepsat svou predstavu a     reflexe       2017-07-30
+                            poslat Honzovi
+@errands @home next       4 Poslat Hance papir o uctu   tabor         2017-06-13
+next                      8 Vymyslet jak pojedu         vodovikend    2017-06-11
+next                      9 Precist vsechny informace   vodovikend    2017-06-13
+computer home next       16 Sepsat, v cem se chci       vzdelavani    2017-06-30
+                            vzdelavat
+computer home next phone 18 Zjistit, jestli v Jedove    zao           2017-06-20
+                            muzou byt dva psi
+@home next                5 Udelat scenar na kazdy den  zao           2017-07-01
+@home next                3 Scenar na kazdy den         zao           2017-07-05
+home next                13 Napsat neco jako pozvanku   zpivani_venku 2017-06-11
+
+69 tasks
