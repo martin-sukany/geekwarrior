@@ -31,7 +31,7 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	echo -e "\t - Process this item (hit ENTER)"
 	echo -e "\t - Less then 2min (type done)"
 	echo -e "\t - Delete this item (type del)"
-	read -p "Your choice [ENTER/done/del] :" CHOICE
+	read -p "Your choice [ENTER/done/del]: " CHOICE
 
 	case $CHOICE in
 		done)
@@ -79,9 +79,9 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	CMD_OPTS+=" priority:$N_PR"
 
 	if [ -z $N_DESC ]; then
-		N_DESC=$DESC
+		N_DESC="\"$DESC\""
 	fi
-	CMD_OPTS+=" $N_DESC"
+	CMD_OPTS+=" \"$N_DESC\""
 
 	# Running
 	RUN=${CMD}${CMD_OPTS}
