@@ -1,10 +1,11 @@
 
 ID Project Tags Description
--- ------- ---- -------------------------------
+-- ------- ---- --------------------------------------------
 11          [2] Koupit alobal
 
+20 byt      [4] Koupit novou zarovku do koupelny (ledku)
 19 byt      [4] Sehnat sadru na diru ve zdi
 
  4 tabor    [3] Poslat Hance papir o uctu
 
-3 tasks
+4 tasks
