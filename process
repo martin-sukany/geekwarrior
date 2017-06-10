@@ -37,12 +37,12 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 		done)
 			RUN="task $ID done"
 			eval $RUN
-			continue
+			break
 			;;
 		del)
 			RUN="task delete $ID"
 			eval $RUN
-			continue
+			break
 			;;
 		*)
 			echo "Task will be processed. If you want to go back, type Ctrl+C."
