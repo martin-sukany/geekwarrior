@@ -4,7 +4,7 @@ BASE=`dirname $0`
 cd $BASE
 
 IFS=$'\n'
-for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' |tr -d "}" |tr -d "\"" |grep "^id.*$" | $BASE/process_parser.awk); do
+for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' |tr -d "}" |tr -d "\"" |grep "^id.*$" | $BASE/inc/process_parser.awk); do
 	ID=$(echo "$i" |fgrep id | cut -d":" -f2)
 	DESC=$(echo "$i" |fgrep description |cut -d":" -f4)
 	CMD="task modify "$ID" "
