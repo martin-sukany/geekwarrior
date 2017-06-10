@@ -47,9 +47,13 @@ This script allows you to define
 * ''task gtd'' shows the sorted report of your system.
 * For more information see TaskWarrior's manual.
 
-# Usage from mobile devices
-## Collecting from mobile device
-## View reports
+# Usage from mobile devices (user-case)
+* I am using Dropbox as storage backend. 
+* Here I have <b>tasks.txt</b> file which is my "mobile INBOX" (record per line). 
+* On my laptop I have defined <b>cron job</b> which calls <b>task-add.sh</b> script -- it add the tasks from task.txt to my regular INBOX and truncate tasks.txt as well.
+* I am using also <b>gen_reports.sh</b> script to export task lists to TXT files (separately by contexts) so I have all my tasks available if I need them :). 
+
+
 
 
 
