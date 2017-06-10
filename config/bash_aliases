@@ -1,0 +1,44 @@
+### Aliases
+
+# add task to INBOX 
+alias in="task add +in"
+
+# Alias for ticler feature
+alias tick=tickle
+
+# Sometimes you need to think abut your stuff, so you can simple postpone it by one single day
+alias think='tickle +1d'
+
+# Alias for task processing
+alias pr="task modify"
+
+# Many times you need to simple read & reviews some information (i. e. web pages etc.)
+alias rnr=read_and_review
+
+# show count of stuff inside INBOX at the begining of shell prompt
+export PS1='($(task +in +PENDING count)) '$PS1
+
+
+#### Functions
+
+webpage_title (){
+    wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null
+}
+
+read_and_review (){
+    link="$1"
+    title=$(webpage_title $link)
+    echo $title
+    descr="\"Read and review: $title\""
+    id=$(task add +next +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+    task "$id" annotate "$link"
+}
+
+
+
+tickle () {
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+

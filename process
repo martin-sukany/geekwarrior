@@ -1,0 +1,94 @@
+#!/bin/bash
+
+BASE=`dirname $0`
+cd $BASE
+
+IFS=$'\n'
+for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' |tr -d "}" |tr -d "\"" |grep "^id.*$" | $BASE/process_parser.awk); do
+	ID=$(echo "$i" |fgrep id | cut -d":" -f2)
+	DESC=$(echo "$i" |fgrep description |cut -d":" -f4)
+	CMD="task modify "$ID" "
+	CMD_OPTS="-in +next"
+
+	#Processing options
+	N_DESC="$DESC"	# description
+	N_DUE=""	# due data
+	N_TAG=""	# contexts
+	N_PR="M"	# priority
+	N_PRO=""	# project
+
+
+	echo "### Processing ... ###"
+	echo "Task ID: $ID"
+	echo "Description: $DESC"
+	echo "----------------------------------------"
+
+
+
+
+	# Decide what to do
+	echo "Decide what to do:"
+	echo -e "\t - Process this item (hit ENTER)"
+	echo -e "\t - Less then 2min (type done)"
+	echo -e "\t - Delete this item (type del)"
+	read -p "Your choice [ENTER/done/del] :" CHOICE
+
+	case $CHOICE in
+		done)
+			RUN="task $ID done"
+			eval $RUN
+			continue
+			;;
+		del)
+			RUN="task delete $ID"
+			eval $RUN
+			continue
+			;;
+		*)
+			echo "Task will be processed. If you want to go back, type Ctrl+C."
+			;;
+	esac
+
+
+	# Reading input
+	read -p "Description (default $N_DESC): " N_DESC
+	read -p "Project (default none): " N_PRO
+	read -p "Due date[yyyy-mm-dd] (default ASAP): " N_DUE
+	read -p "Context (MUST BE like "+context", default empty): " N_TAG
+	read -p "Priority[H/M/L] (default: M): " N_PR
+
+
+
+	# Processing user inputs
+
+	if [ ! -z $N_PRO ]; then
+		CMD_OPTS+=" project:$N_PRO"
+	fi
+
+	if [ ! -z $N_DUE ]; then
+		CMD_OPTS+=" due:$N_DUE"
+	fi
+
+	if [ ! -z $N_TAG ]; then
+		CMD_OPTS+=" $N_TAG"
+	fi
+
+	if [ -z $N_PR ]; then
+		N_PR="M"
+	fi
+	CMD_OPTS+=" priority:$N_PR"
+
+	if [ -z $N_DESC ]; then
+		N_DESC=$DESC
+	fi
+	CMD_OPTS+=" $N_DESC"
+
+	# Running
+	RUN=${CMD}${CMD_OPTS}
+	echo "Running: $RUN"
+	
+	read -p "Press ENTER to go ahead or Ctrl+C to cancel"
+	eval $RUN
+done
+
+exit 0

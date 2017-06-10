@@ -1,0 +1,19 @@
+
+# Define of INBOX view
+report.in.columns           = id,description
+report.in.description       = Inbox
+report.in.filter            = status:pending limit:page (+in)
+report.in.labels            = ID,Description
+
+# Define GTD review report
+report.gtd.columns=tags,id,description,project,due
+report.gtd.description=List GTD style task
+report.gtd.filter=status:pending 
+report.gtd.labels=Context,ID,Task,Project,Due
+report.gtd.sort=project+,due+,tags+,description+
+
+# Some sample context definitions
+context.home=+@home or +home or +computer or +@computer or +online or +@online
+context.errands=+errands or +@errands
+context.work=+ibm or +@ibm or +work or +@work
+context.meeting=+meeting or +@meeting
