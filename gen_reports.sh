@@ -19,3 +19,4 @@ done
 
 task minimal > $REPORTS/all_tasks.txt
 task gtd > $REPORTS/00_gtd.txt
+task next >$REPORTS/00_next.txt
