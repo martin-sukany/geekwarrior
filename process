@@ -16,7 +16,8 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	N_TAG=""	# contexts
 	N_PR="M"	# priority
 	N_PRO=""	# project
-
+	N_SM="n"	# Someday/Maybe flag (default: no)
+	N_WF="n"	# Waiting flag (default: no)
 
 	echo "### Processing ... ###"
 	echo "Task ID: $ID"
@@ -29,8 +30,10 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	# Decide what to do
 	echo "Decide what to do:"
 	echo -e "\t - Process this item (hit ENTER)"
-	echo -e "\t - Less then 2min (type done)"
-	echo -e "\t - Delete this item (type del)"
+	echo -e "\t - Less then 2min (type \"done\")"
+	echo -e "\t - Delete this item (type \"del\")"
+	echo -e "\t - Mark as Someday / Maybe action (type \"sm\")"
+	echo -e "\t - Mark as Waiting for action (type \"wf\")"
 	read -p "Your choice [ENTER/done/del]: " CHOICE
 
 	case $CHOICE in
@@ -44,11 +47,16 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 			eval $RUN
 			break
 			;;
+		sm)
+			N_SM="y"
+			;;
+		wf)
+			N_WF="y"
+			;;
 		*)
-			echo "Task will be processed. If you want to go back, type Ctrl+C."
 			;;
 	esac
-
+	echo "Task will be processed ... "
 
 	# Reading input
 	read -p "Description (default $N_DESC): " N_DESC
@@ -71,6 +79,14 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 
 	if [ ! -z $N_TAG ]; then
 		CMD_OPTS+=" $N_TAG"
+	fi
+
+	if [ $N_SM == "y" ]; then
+		CMD_OPTS+=" +someday -next"
+	fi
+
+	if [ $N_WF == "y" ]; then
+		CMD_OPTS=" +waiting -next"
 	fi
 
 	if [ -z $N_PR ]; then
