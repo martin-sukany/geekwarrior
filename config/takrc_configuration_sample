@@ -6,10 +6,10 @@ report.in.filter            = status:pending limit:page (+in)
 report.in.labels            = ID,Description
 
 # Define GTD review report
-report.gtd.columns=tags,id,description,project,due
+report.gtd.columns=id,project,description,tags,due
 report.gtd.description=List GTD style task
 report.gtd.filter=status:pending (-in) 
-report.gtd.labels=Context,ID,Task,Project,Due
+report.gtd.labels=ID,Project,Task,Contexts,Due
 report.gtd.sort=project+,due+,tags+,description+
 
 # Some sample context definitions
