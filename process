@@ -1,7 +1,6 @@
 #!/bin/bash
 
 BASE=`dirname $0`
-cd $BASE
 
 IFS=$'\n'
 for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' |tr -d "}" |tr -d "\"" |grep "^id.*$" | $BASE/inc/process_parser.awk); do
