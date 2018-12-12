@@ -12,6 +12,7 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	#Processing options
 	N_DESC="$DESC"	# description
 	N_DUE=""	# due data
+	N_REC=""	# recurrence
 	N_TAG=""	# contexts
 	N_PR="M"	# priority
 	N_PRO=""	# project
@@ -61,6 +62,7 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	read -p "Description (default $N_DESC): " N_DESC
 	read -p "Project (default none): " N_PRO
 	read -p "Due date[yyyy-mm-dd] (default ASAP): " N_DUE
+	read -p "Recurrence (hit Enter if no): " N_REC
 	read -p "Context (MUST BE like "+context", default empty): " N_TAG
 	read -p "Priority[H/M/L] (default: M): " N_PR
 
@@ -71,9 +73,11 @@ for i in $(task +in +PENDING export  |sed -e 's/\\r//g' |tr -d "{" | tr -d '\r' 
 	if [ ! -z $N_PRO ]; then
 		CMD_OPTS+=" project:$N_PRO"
 	fi
-
+	if [ ! -z $N_REC ]; then
+		CMD_OPTS+="  recur:$N_REC"
+	fi
 	if [ ! -z $N_DUE ]; then
-		CMD_OPTS+=" due:$N_DUE"
+		CMD_OPTS+=" due:\"$N_DUE\""
 	fi
 
 	if [ ! -z $N_TAG ]; then
